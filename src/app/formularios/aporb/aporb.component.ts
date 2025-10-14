@@ -36,6 +36,4 @@ export class AporbComponent {
     this.proceso = this.objMulti.proceso;
 
   }
-
-
 }

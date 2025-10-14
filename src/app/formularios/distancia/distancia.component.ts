@@ -37,6 +37,4 @@ export class DistanciaComponent {
     this.resultado = this.distancia.calcularDistancia();
   }
 
-
-
 }

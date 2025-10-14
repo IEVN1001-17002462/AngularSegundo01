@@ -18,5 +18,4 @@ export class aporbOperacion{
         this.proceso = this.proceso + ' = ' + this.resultado;
 
     }
-
 }

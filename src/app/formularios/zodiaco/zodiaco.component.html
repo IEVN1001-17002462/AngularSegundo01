@@ -1,0 +1,94 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-6">
+  <div class="bg-white shadow-2xl rounded-2xl p-8 grid md:grid-cols-2 gap-10 max-w-5xl w-full">
+    
+    <form [formGroup]="formulario" class="space-y-5">
+      <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">Zodiaco Chino</h1>
+
+      <div class="relative">
+        <input formControlName="nombre" type="text" id="nombre"
+          class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+          placeholder="Nombre" required />
+        <label for="nombre"
+          class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+          Nombre
+        </label>
+      </div>
+
+      <div class="relative">
+        <input formControlName="apaterno" type="text" id="apaterno"
+          class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+          placeholder="A. Paterno" required />
+        <label for="apaterno"
+          class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+          A. Paterno
+        </label>
+      </div>
+
+      <div class="relative">
+        <input formControlName="amaterno" type="text" id="amaterno"
+          class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+          placeholder="A. Materno" required />
+        <label for="amaterno"
+          class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+          A. Materno
+        </label>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="relative">
+          <input formControlName="dia" type="number" id="dia"
+            class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+            placeholder="Día" required />
+          <label for="dia"
+            class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+            Día
+          </label>
+        </div>
+
+        <div class="relative">
+          <input formControlName="mes" type="number" id="mes"
+            class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+            placeholder="Mes" required />
+          <label for="mes"
+            class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+            Mes
+          </label>
+        </div>
+
+        <div class="relative">
+          <input formControlName="anio" type="number" id="anio"
+            class="peer block w-full border-b-2 border-gray-300 bg-transparent py-2 text-gray-800 placeholder-transparent focus:border-indigo-500 focus:outline-none"
+            placeholder="Año" required />
+          <label for="anio"
+            class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-indigo-600">
+            Año
+          </label>
+        </div>
+      </div>
+
+      <div class="flex space-x-6 items-center">
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="sexo" value="Hombre" class="text-indigo-600 focus:ring-indigo-500" checked />
+          <span class="text-sm text-gray-700">Masculino</span>
+        </label>
+
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="sexo" value="Mujer" class="text-pink-600 focus:ring-pink-500" />
+          <span class="text-sm text-gray-700">Femenino</span>
+        </label>
+      </div>
+
+      <button type="submit" (click)="calcular()"
+        class="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition-all shadow-md">
+        Calcular Signo
+      </button>
+    </form>
+
+    <div *ngIf="resultado" class="flex flex-col items-center justify-center text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl shadow-inner">
+      <p class="text-xl font-semibold text-gray-800 mb-4">{{ resultado }}</p>
+      <img [src]="imagen" alt="Signo chino"
+        class="w-50 h-50 object-cover rounded-full shadow-lg border-4 border-indigo-300 transition-transform duration-300 hover:scale-105" />
+    </div>
+  </div>
+</div>
+
